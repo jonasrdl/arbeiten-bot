@@ -4,6 +4,11 @@ const MessageEmbed = require('discord.js').MessageEmbed
 const DBNAME = 'arbeiten'
 const TABLE = 'arbeiten'
 
+const formatDate = (date) => {
+  const temp = String(date).split('-')
+  const end = temp[2] + '-' + temp[1] + '-' + temp[0]
+}
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('add')
@@ -22,6 +27,11 @@ module.exports = {
       password: 'password',
       database: DBNAME
     })
+
+    if (fach === undefined || thema === undefined || datum === undefined) {
+      interaction.reply('Bitte alle Felder ausfüllen')
+      return
+    }
 
     mysqlConnection.connect(function (err) {
       if (err) throw err
