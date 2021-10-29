@@ -24,7 +24,7 @@ module.exports = {
         if (err) throw err
 
         result.forEach((element) => {
-          interaction.reply(
+          interaction.channel.send(
             `Fach: ${element.fach}, Thema: ${element.thema}, Datum: ${element.datum}`
           )
 
