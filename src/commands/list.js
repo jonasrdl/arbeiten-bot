@@ -13,14 +13,14 @@ module.exports = {
       database: DBNAME
     })
 
-    connection.connect(function (err) {
+    mysqlConnection.connect(function (err) {
       if (err) throw err
 
       console.log('Connected!')
 
       const sql = 'SELECT * FROM `arbeiten`;'
 
-      connection.query(sql, function (err, result) {
+      mySQLConnection.query(sql, function (err, result) {
         if (err) throw err
 
         const embed = new MessageEmbed()
