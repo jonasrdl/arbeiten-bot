@@ -5,8 +5,8 @@ const DBNAME = 'arbeiten'
 const TABLE = 'arbeiten'
 
 const formatDate = (date) => {
-  const temp = String(date).split('-')
-  return temp[2] + '.' + temp[1] + '.' + temp[0]
+  const temp = String(date).split('.')
+  return temp[2] + '-' + temp[1] + '-' + temp[0]
 }
 
 module.exports = {
@@ -20,8 +20,6 @@ module.exports = {
     const fach = interaction.options.getString('fach')
     const thema = interaction.options.getString('thema')
     const datum = interaction.options.getString('datum')
-
-    console.log(formatDate(datum))
 
     const mysqlConnection = mysql.createConnection({
       host: 'mariadb',
@@ -43,7 +41,7 @@ module.exports = {
         "', '" +
         mysqlConnection.escape(thema) +
         "', '" +
-        mysqlConnection.escape(datum) +
+        mysqlConnection.escape(formatDate(datum)) +
         "' );"
 
       mysqlConnection.query(sql, function (err, result) {
