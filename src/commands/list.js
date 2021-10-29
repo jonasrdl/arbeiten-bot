@@ -24,18 +24,14 @@ module.exports = {
         if (err) throw err
 
         result.forEach((element) => {
-          console.log(element)
+          const embed = new MessageEmbed()
+            .setColor('#1f5e87')
+            .setTitle(element.fach)
+            .addField(`${element.thema}`, `${element.datum}`)
+            .setTimestamp()
+
+          interaction.channel.send(embed)
         })
-
-        console.log(JSON.stringify(result))
-
-        const embed = new MessageEmbed()
-          .setColor('#1f5e87')
-          .setTitle('Alle arbeiten:')
-          .addField('Result: ', `${JSON.stringify(result)}`)
-          .setTimestamp()
-
-        return interaction.reply({ embeds: [embed] })
       })
     })
   }
