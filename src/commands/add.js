@@ -33,7 +33,7 @@ module.exports = {
 
       console.log('Connected!')
 
-      const sql =
+      /* const sql =
         'INSERT INTO ' +
         TABLE +
         " (fach, thema, datum) VALUES ('" +
@@ -43,6 +43,18 @@ module.exports = {
         "', '" +
         formatDate(datum) +
         "' );"
+      */
+
+      const sql =
+        'insert into' +
+        TABLE +
+        ' (fach, thema, datum) values (' +
+        mysqlConnection.escape(fach) +
+        ', ' +
+        mysqlConnection.escape(thema) +
+        ', ' +
+        mysqlConnection.escape(formatDate(datum)) +
+        ')'
 
       mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
