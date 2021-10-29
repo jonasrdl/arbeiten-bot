@@ -42,16 +42,9 @@ module.exports = {
       mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
 
-        result.forEach((element) => {
-          interaction.channel.send(
-            `Fach:
-             ${element.fach} 
-             Thema: ${element.thema} 
-             Datum: ${element.datum}`
-          )
-        })
+        console.log(result)
 
-        interaction.reply('Alle arbeiten: ')
+        interaction.reply('Test')
       })
     })
   }
