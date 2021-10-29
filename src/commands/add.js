@@ -6,7 +6,7 @@ const TABLE = 'arbeiten'
 
 const formatDate = (date) => {
   const temp = String(date).split('.')
-  return temp[2] + '-' + temp[1] + '-' + temp[0]
+  return temp[2] + '-' + temp[0] + '-' + temp[1]
 }
 
 module.exports = {
