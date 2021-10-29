@@ -2,6 +2,7 @@ const mysql = require('mysql')
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const MessageEmbed = require('discord.js').MessageEmbed
 const DBNAME = 'arbeiten'
+const TABLE = 'arbeiten'
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -28,13 +29,15 @@ module.exports = {
       console.log('Connected!')
 
       const sql =
-        'INSERT INTO `arbeiten` (`fach`, `thema`, `datum`) VALUES (' +
+        'INSERT INTO ' +
+        TABLE +
+        " (fach, thema, datum) VALUES ('" +
         fach +
-        ', ' +
+        "', '" +
         thema +
-        ', ' +
+        "', '" +
         datum +
-        ')'
+        "' );"
 
       mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
