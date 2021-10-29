@@ -21,17 +21,17 @@ module.exports = {
     const thema = interaction.options.getString('thema')
     const datum = interaction.options.getString('datum')
 
+    if (fach === '' || thema === '' || datum === '') {
+      interaction.reply('Bitte alle Felder ausfüllen')
+      return
+    }
+
     const mysqlConnection = mysql.createConnection({
       host: 'mariadb',
       user: 'root',
       password: 'password',
       database: DBNAME
     })
-
-    if (fach === undefined || thema === undefined || datum === undefined) {
-      interaction.reply('Bitte alle Felder ausfüllen')
-      return
-    }
 
     mysqlConnection.connect(function (err) {
       if (err) throw err
