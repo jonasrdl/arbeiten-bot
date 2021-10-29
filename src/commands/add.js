@@ -21,10 +21,7 @@ module.exports = {
     const thema = interaction.options.getString('thema')
     const datum = interaction.options.getString('datum')
 
-    if (fach === '' || thema === '' || datum === '') {
-      interaction.reply('Bitte alle Felder ausfüllen')
-      return
-    }
+    console.log(formatDate(datum))
 
     const mysqlConnection = mysql.createConnection({
       host: 'mariadb',
