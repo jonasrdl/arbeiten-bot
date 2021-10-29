@@ -24,14 +24,14 @@ module.exports = {
         if (err) throw err
 
         result.forEach((element) => {
-          console.log(element.fach)
-          console.log(element.thema)
-          console.log(element.datum)
+          let fach = element.fach
+          let thema = element.thema
+          let datum = element.datum
 
           const embed = new MessageEmbed()
             .setColor('#1f5e87')
-            .setTitle(element.fach)
-            .addField(`${element.thema}`, `${element.datum}`)
+            .setTitle(fach)
+            .addField(`${thema}`, `${datum}`, false)
             .setTimestamp()
 
           interaction.channel.send(embed)
