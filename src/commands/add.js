@@ -33,18 +33,6 @@ module.exports = {
 
       console.log('Connected!')
 
-      /* const sql =
-        'INSERT INTO ' +
-        TABLE +
-        " (fach, thema, datum) VALUES ('" +
-        fach +
-        "', '" +
-        thema +
-        "', '" +
-        formatDate(datum) +
-        "' );"
-      */
-
       const sql =
         'insert into ' +
         TABLE +
