@@ -20,7 +20,7 @@ module.exports = {
 
       const sql = 'SELECT * FROM `arbeiten`;'
 
-      mySQLConnection.query(sql, function (err, result) {
+      mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
 
         const embed = new MessageEmbed()
