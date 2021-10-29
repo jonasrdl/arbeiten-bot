@@ -47,9 +47,7 @@ module.exports = {
       mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
 
-        console.log(result)
-
-        interaction.reply('Test')
+        interaction.reply('Erfolgreich hinzugefügt!')
       })
     })
   }
