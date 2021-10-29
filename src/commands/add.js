@@ -37,11 +37,11 @@ module.exports = {
         'INSERT INTO ' +
         TABLE +
         " (fach, thema, datum) VALUES ('" +
-        mysqlConnection.escape(fach) +
+        fach +
         "', '" +
-        mysqlConnection.escape(thema) +
+        thema +
         "', '" +
-        mysqlConnection.escape(formatDate(datum)) +
+        formatDate(datum) +
         "' );"
 
       mysqlConnection.query(sql, function (err, result) {
