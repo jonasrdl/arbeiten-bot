@@ -46,7 +46,7 @@ module.exports = {
       */
 
       const sql =
-        'insert into' +
+        'insert into ' +
         TABLE +
         ' (fach, thema, datum) values (' +
         mysqlConnection.escape(fach) +
