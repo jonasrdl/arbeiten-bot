@@ -23,6 +23,12 @@ module.exports = {
       mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
 
+        result.forEach((element) => {
+          console.log(element)
+        })
+
+        console.log(JSON.stringify(result))
+
         const embed = new MessageEmbed()
           .setColor('#1f5e87')
           .setTitle('Alle arbeiten:')
