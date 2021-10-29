@@ -24,17 +24,17 @@ module.exports = {
         if (err) throw err
 
         result.forEach((element) => {
-          let fach = element.fach
-          let thema = element.thema
-          let datum = element.datum
+          interaction.reply(
+            `Fach: ${element.fach}, Thema: ${element.thema}, Datum: ${element.datum}`
+          )
 
-          const embed = new MessageEmbed()
+          /* const embed = new MessageEmbed()
             .setColor('#1f5e87')
             .setTitle(fach)
             .addField(`${thema}`, `${datum}`, false)
             .setTimestamp()
 
-          interaction.channel.send(embed)
+          interaction.channel.send(embed) */
         })
       })
     })
