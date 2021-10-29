@@ -25,7 +25,10 @@ module.exports = {
 
         result.forEach((element) => {
           interaction.channel.send(
-            `Fach: ${element.fach}, Thema: ${element.thema}, Datum: ${element.datum}`
+            `Fach:
+             ${element.fach} 
+             Thema: ${element.thema} 
+             Datum: ${element.datum}`
           )
         })
 
