@@ -1,3 +1,4 @@
+const mysql = require('mysql')
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const MessageEmbed = require('discord.js').MessageEmbed
 const DBNAME = 'arbeiten'
