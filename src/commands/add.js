@@ -7,8 +7,14 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('add')
     .setDescription('Add an exam')
-    .addStringOption((option) => option.setName('fach').setDescription('Fach')),
+    .addStringOption((option) => option.setName('fach').setDescription('Fach'))
+    .addStringOption((option) => option.setName('thema').setDescription('Thema'))
+    .addStringOption((option) => option.setName('datum').setDescription('Datum')),
   async execute(interaction) {
+    const fach = interaction.options.getString('fach')
+    const thema = interaction.options.getString('thema')
+    const datum = interaction.options.getString('datum')
+
     const mysqlConnection = mysql.createConnection({
       host: 'mariadb',
       user: 'root',
@@ -21,7 +27,14 @@ module.exports = {
 
       console.log('Connected!')
 
-      const sql = 'INSERT INTO `arbeiten` (`fach`, `thema`, `datum`) VALUES' + ('', '', '')
+      const sql =
+        'INSERT INTO `arbeiten` (`fach`, `thema`, `datum`) VALUES (' +
+        fach +
+        ', ' +
+        thema +
+        ', ' +
+        datum +
+        ')'
 
       mysqlConnection.query(sql, function (err, result) {
         if (err) throw err
