@@ -26,7 +26,7 @@ module.exports = {
         const embed = new MessageEmbed()
           .setColor('#1f5e87')
           .setTitle('Alle arbeiten:')
-          .addField('Result: ', `${result}`)
+          .addField('Result: ', `${JSON.stringify(result)}`)
           .setTimestamp()
 
         return interaction.reply({ embeds: [embed] })
