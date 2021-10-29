@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const MessageEmbed = require('discord.js').MessageEmbed
+const DBNAME = 'arbeiten'
 
 module.exports = {
   data: new SlashCommandBuilder().setName('list').setDescription('List all exams'),
