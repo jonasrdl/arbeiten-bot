@@ -1,8 +1,34 @@
 const { SlashCommandBuilder } = require('@discordjs/builders')
+const MessageEmbed = require('discord.js').MessageEmbed
 
 module.exports = {
   data: new SlashCommandBuilder().setName('list').setDescription('List all exams'),
   async execute(interaction) {
-    return interaction.reply('Pong!')
+    const mysqlConnection = mysql.createConnection({
+      host: 'mariadb',
+      user: 'root',
+      password: 'password',
+      database: DBNAME
+    })
+
+    connection.connect(function (err) {
+      if (err) throw err
+
+      console.log('Connected!')
+
+      const sql = 'SELECT * FROM `arbeiten`;'
+
+      connection.query(sql, function (err, result) {
+        if (err) throw err
+
+        const embed = new MessageEmbed()
+          .setColor('#1f5e87')
+          .setTitle('Alle arbeiten:')
+          .addField('Result: ', `${result}`)
+          .setTimestamp()
+
+        return interaction.reply({ embeds: [embed] })
+      })
+    })
   }
 }
